@@ -101,7 +101,7 @@ while (true) {
 - **Alcance de Variables**: Entender cómo las variables dentro de las funciones son independientes de las globales.
 - **Precauciones**: Cuidado con los ciclos infinitos y el uso adecuado de las funciones.
 
-En la próxima clase, seguiremos creando más funciones y explorando sus capacidades en JavaScript.
+
 
 
 
