@@ -1,78 +1,107 @@
-# Ciclos en JavaScript: while, do while, for
 
-En este repositorio encontrarás ejemplos y explicaciones detalladas sobre los ciclos en JavaScript: while, do while y for.
+# Trabajando con Funciones en JavaScript
 
-## Ciclo while 🔄
-El ciclo while se utiliza cuando queremos que un bloque de código se repita mientras una condición sea verdadera.
+En esta clase, aprenderemos cómo trabajar con funciones en JavaScript. Las funciones son fundamentales en la programación y ya hemos estado usando algunas a lo largo del curso, como `console.log()`.
+
+## Definición de Funciones
+
+Vamos a crear nuestra propia función. Empezaremos con la palabra reservada `function`. Aquí hay un ejemplo básico:
 
 ~~~~
-let i = 1;
-while (i <= 10) {
-    console.log(`Iteración ${i}`);
-    i++;
+function greet() {
+    console.log("Hola Mundo");
 }
+greet();
 ~~~~
 
 ### Características:
-- La condición se evalúa antes de ejecutar el bloque de código.
-- Puede no ejecutarse nunca si la condición inicialmente es falsa.
+- **Definición**: Usamos la palabra reservada `function` seguida del nombre de la función y paréntesis.
+- **Llamada**: Para ejecutar la función, simplemente llamamos su nombre seguido de paréntesis, como `greet()`.
 
-### Uso típico:
-El ciclo while es útil cuando no conocemos de antemano cuántas veces se ejecutará el bloque de código, pero sí sabemos que debe ejecutarse mientras se cumpla una condición específica.
+## Funciones con Argumentos
 
----
-
-## Ciclo do while 🔄
-El ciclo do while es similar al while, pero garantiza que el bloque de código se ejecute al menos una vez, ya que la condición se evalúa después de ejecutar el bloque.
+Podemos hacer nuestras funciones más flexibles aceptando argumentos:
 
 ~~~~
-let i = 1;
-do {
-    console.log(`Iteración ${i}`);
-    i++;
-} while (i <= 10);
+function greet(name) {
+    console.log(`Hola ${name}`);
+}
+greet("Fernando");
 ~~~~
 
 ### Características:
-- Asegura al menos una ejecución del bloque de código.
-- La condición se evalúa después de cada iteración.
+- **Argumentos**: Los argumentos se definen dentro de los paréntesis en la definición de la función.
+- **Uso**: Los argumentos pueden ser usados dentro de la función para personalizar su comportamiento.
 
-### Uso típico:
-Se utiliza cuando necesitamos ejecutar un bloque de código al menos una vez antes de verificar una condición.
+### Valores por Defecto
 
----
-
-## Ciclo for 🔄
-El ciclo for es ideal cuando conocemos el número exacto de iteraciones que queremos realizar. Es una estructura compacta que incluye la inicialización, la condición y el incremento de la variable de control en una sola línea.
+Podemos asignar valores por defecto a los argumentos:
 
 ~~~~
-for (let i = 1; i <= 10; i++) {
-    console.log(`Iteración ${i}`);
+function greet(name = "Mundo") {
+    console.log(`Hola ${name}`);
+}
+greet();         // Imprime "Hola Mundo"
+greet("Juan");   // Imprime "Hola Juan"
+~~~~
+
+### Variables y Alcance
+
+Los nombres de las variables en la definición de los argumentos son independientes de las variables en el ámbito global:
+
+~~~~
+let firstName = "Juan";
+function greet(name) {
+    console.log(`Hola ${name}`);
+}
+greet(firstName);  // Imprime "Hola Juan"
+~~~~
+
+## Ejemplo Completo
+
+Vamos a ver un ejemplo completo utilizando lo aprendido:
+
+~~~~
+function greet(name = "Mundo") {
+    console.log(`Hola ${name}`);
+}
+
+// Llamadas a la función
+greet();         // Imprime "Hola Mundo"
+greet("Pedro");  // Imprime "Hola Pedro"
+greet("María");  // Imprime "Hola María"
+
+// Usando variables
+let firstName = "Ana";
+greet(firstName); // Imprime "Hola Ana"
+~~~~
+
+## Ciclo Infinito con Funciones (Ejemplo de Precaución)
+
+Usar funciones dentro de ciclos puede llevar a comportamientos inesperados si no se maneja correctamente:
+
+~~~~
+function greet(name = "Mundo") {
+    console.log(`Hola ${name}`);
+}
+
+// Ciclo infinito (¡No ejecutar esto sin precaución!)
+while (true) {
+    greet();
 }
 ~~~~
 
-### Características:
-- Estructura controlada con una variable de control definida internamente.
-- Perfecto para iterar sobre arreglos y rangos predecibles.
+### Nota:
+- **Control del Ciclo**: Para detener un ciclo infinito, en la terminal de comandos puedes usar `Ctrl + C`.
 
-### Uso típico:
-Es especialmente útil cuando sabemos de antemano cuántas veces queremos repetir el bloque de código, como en el caso de iterar sobre elementos de una lista conocida.
+## Resumen
 
----
+- **Definición de Funciones**: `function nombreDeFuncion() { }`
+- **Argumentos y Valores por Defecto**: Permiten hacer las funciones más flexibles y reutilizables.
+- **Alcance de Variables**: Entender cómo las variables dentro de las funciones son independientes de las globales.
+- **Precauciones**: Cuidado con los ciclos infinitos y el uso adecuado de las funciones.
 
-## Ejercicio: Tabla de multiplicar del 10 📊
-Como ejercicio práctico, se pide imprimir la tabla de multiplicar del 10 desde el número 1 hasta 50 utilizando cualquier ciclo de los mencionados.
 
-~~~~
-const base = 10;
-const limite = 50;
-
-for (let i = 1; i <= limite; i++) {
-    console.log(`${base} x ${i} = ${base * i}`);
-}
-~~~~
-
-Este ejercicio demuestra cómo aplicar los conceptos de ciclos para generar resultados repetitivos de manera estructurada.
 
 
 
