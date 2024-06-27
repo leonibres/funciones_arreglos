@@ -1,3 +1,11 @@
+/**
+ * Imprime un mensaje de saludo con el nombre proporcionado.
+ *
+ * @param name El nombre para el saludo.
+ */
+function greeter(name: string) {
+  console.log(`Hello ${name}`);
+}
 
-console.log('Hola Mundo');
-
+let firstName = "John";
+greeter(firstName);
